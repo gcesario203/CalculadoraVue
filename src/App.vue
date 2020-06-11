@@ -1,12 +1,13 @@
 <template>
  <div id="app">
-     <h1>Ola mundo/VUe</h1>
+     <Calculator></Calculator>
  </div>
 </template>
 
 <script>
+import Calculator from './main/Calculator'
 export default {
-
+    components:{Calculator}
 }
 </script>
 
