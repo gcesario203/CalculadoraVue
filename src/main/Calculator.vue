@@ -62,6 +62,8 @@ export default {
 
                 this.displayValue = this.value[0]
                 this.operation = equals?null:operation
+                this.current = equals?0:1
+                this.clearDisplay = !equals
             }
         },
         addDigit(n){
