@@ -1,5 +1,5 @@
 <template>
-    <button class="button" :class="{double,triple,operation}">
+    <button class="button" @click="$emit('onClick', label)" :class="{double,triple,operation}">
         {{label}}
     </button>
 </template>
@@ -31,8 +31,7 @@ export default {
 
 .button:active{
     background-color: rgb(114, 105, 105);
-    border-right: var(--border-button);
-    border-bottom: var(--border-button);
+    border: var(--border-button);
 }
 
 .button.double{
@@ -44,7 +43,7 @@ export default {
 }
 
 .button.operation{
-    background-color: dodgerblue;
+    background:linear-gradient(to right, rgb(53,142,231),rgb(71, 69, 69));
     color: white;
     transition: 100ms;
 }
