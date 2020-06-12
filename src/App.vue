@@ -1,5 +1,6 @@
 <template>
  <div id="app">
+     <h1>Calculadora Vue</h1>
      <Calculator></Calculator>
  </div>
 </template>

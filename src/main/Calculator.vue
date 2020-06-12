@@ -1,10 +1,23 @@
 <template>
     <div class="calculator">
         <Display></Display>
-        <Button></Button>
-        <Button></Button>
-        <Button></Button>
-        <Button></Button>
+        <Button label="AC" triple></Button>
+        <Button label="/" operation></Button>
+        <Button label="7"></Button>
+        <Button label="8"></Button>
+        <Button label="9"></Button>
+        <Button label="*" operation></Button>
+        <Button label="4"></Button>
+        <Button label="5"></Button>
+        <Button label="6"></Button>
+        <Button label="-" operation></Button>
+        <Button label="1"></Button>
+        <Button label="2"></Button>
+        <Button label="3"></Button>
+        <Button label="+" operation></Button>
+        <Button label="0" double></Button>
+        <Button label="."></Button>
+        <Button label="=" operation></Button>
     </div>
 </template>
 
@@ -19,7 +32,7 @@ export default {
 
 <style>
 .calculator{
-    height: 320px;
+    height: 330px;
     width: 100%;
     max-width: 250px;
     background: linear-gradient(to left, rgb(20, 20, 20),rgb(77, 74, 74));
@@ -32,9 +45,6 @@ export default {
 
     grid-template-areas:
         "display display display display" 
-        "button button button button" 
-        "button button button button" 
-        "button button button button" 
     ;
 }
 </style>
