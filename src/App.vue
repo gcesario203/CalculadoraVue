@@ -19,6 +19,7 @@ export default {
 }
 
 *{
+    color: black;
     font-family: 'RobotoMono',monospace;
 }
 body{
@@ -34,7 +35,7 @@ body{
     text-align: center;
     color: white;
 
-    background: linear-gradient(to right, rgb(223, 219, 8),rgb(156, 148, 31));
+    background: linear-gradient(to right, rgb(250, 250, 248),rgb(131, 131, 129));
 }
 
 </style>

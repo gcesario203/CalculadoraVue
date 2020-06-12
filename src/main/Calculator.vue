@@ -1,6 +1,6 @@
 <template>
     <div class="calculator">
-        <Display value="2"></Display>
+        <Display :value="displayValue"></Display>
         <Button label="AC" triple @onClick="clearMemory"></Button>
         <Button label="/" operation @onClick="setOperation"></Button>
         <Button label="7" @onClick="addDigit"></Button>
@@ -26,16 +26,63 @@ import Button from '../components/Button'
 import Display from '../components/Display'
 
 export default {
+
+    data:function(){
+        return{
+            displayValue:"0",
+            clearDisplay:false,
+            operation:null,
+            value:[0,0],
+            current:0,
+        }
+    },
     components:{Button,Display},
     methods:{
         clearMemory(){
-            console.log('limpar')
+            Object.assign(this.$data, this.$options.data(   ))
         },
         setOperation(operation){
-            console.log('op' + operation)
+            if(this.current===0){
+                this.operation = operation
+                this.current = 1
+                this.clearDisplay = true
+            }else{
+                const equals = operation === '='
+                const currentOperation = this.operation
+
+                try {
+                    this.value[0] = eval(
+                        `${this.value[0]}${currentOperation}${this.value[1]}`
+                    )
+                } catch (error) {
+                    this.$emit('onError', error)
+                }
+
+                this.value[1] = 0
+
+                this.displayValue = this.value[0]
+                this.operation = equals?null:operation
+            }
         },
         addDigit(n){
-            console.log(n)
+            if(n==='.' && this.displayValue.includes('.')){
+                return
+            }
+
+            const clearDisplay = this.displayValue ==='0' || this.clearDisplay
+
+            const currentValue = clearDisplay?'':this.displayValue
+
+            const displayValue = currentValue + n
+
+            this.displayValue = displayValue
+            this.clearDisplay = false
+
+            if(n!=='.'){
+                const i = this.current
+                const newValue = parseFloat(displayValue)
+                this.value[i]=newValue
+            }
         }
     }
 }

@@ -20,7 +20,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
-    color: teal;
+    color:dodgerblue;
     padding: 20px;
     border-radius: 8px;
     background:whitesmoke;
